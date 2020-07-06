@@ -1,39 +1,43 @@
 package poly.com.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/trang-chu")
-public class HomeController {
 
-	@GetMapping
+public class HomeController {
+	@RequestMapping("/")
+	public String redirectPage() {
+		
+		 return "redirect:trang-chu";
+	}
+	
+	@RequestMapping("/trang-chu")
 	public String homePage() {
 		
 		return "contents/user/home";
 	}
 	
-	@GetMapping("/gioi-thieu")
+	@RequestMapping("/trang-chu/gioi-thieu")
 	public String aboutUs() {
 		
 		return "contents/user/about";
 	}
 	
-	@GetMapping("/tin-tuc")
+	@RequestMapping("/trang-chu/tin-tuc")
 	public String news() {
 		
 		return "contents/user/news";
 	}
 	
-	@GetMapping("/thiet-ke")
+	@RequestMapping("/trang-chu/thiet-ke")
 	public String design() {
 		
 		return "contents/user/design";
 	}
 	
 	
-	@GetMapping("/noi-quy")
+	@RequestMapping("/trang-chu/noi-quy")
 	public String roles() {
 		
 		return "contents/user/rules";

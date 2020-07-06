@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/can-ho")
-public class ApartmentControllerUS {
+public class ApartmentController {
 
 	@GetMapping()
 	public String apartment() {
