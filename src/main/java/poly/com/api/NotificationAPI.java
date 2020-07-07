@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import poly.com.entity.Notification;
-import poly.com.request.PaginationRequest;
 import poly.com.service.NotificationService;
 
 @RestController
@@ -20,11 +19,12 @@ public class NotificationAPI {
 	NotificationService notificationService;
 	
 	@GetMapping
-	public ResponseEntity<Page<Notification>> pagenation(@RequestBody PaginationRequest paginationRequest){	
+	public ResponseEntity<Page<Notification>> pagenation(@RequestParam(name = "page", defaultValue = "0") int page,
+															@RequestParam(name = "size", defaultValue = "6") int size,
+															@RequestParam(name = "title", defaultValue = "") String title,
+															@RequestParam(name = "sortType", defaultValue = "DESC") String sortType ){	
 		
-		return notificationService.pagenation(paginationRequest);
+		return notificationService.pagenation(page, size, title, sortType);
 	}
-	
-	
 	
 }

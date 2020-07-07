@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import poly.com.entity.Notification;
 import poly.com.repository.NotificationRepository;
-import poly.com.request.PaginationRequest;
 
 @Service
 public class NotificationService {
@@ -19,16 +18,16 @@ public class NotificationService {
 	@Autowired
 	NotificationRepository notificationRepository;
 	
-	public ResponseEntity<Page<Notification>> pagenation(PaginationRequest paginationRequest){	
+	public ResponseEntity<Page<Notification>> pagenation(int page, int size, String title, String sortType ){	
 		try {
 			Sort sortable = null;
-			if (paginationRequest.getSortType().equals("ASC")) {
+			if (sortType.equals("ASC")) {
 			      sortable = Sort.by("date").ascending();
 			}else {
 				 sortable = Sort.by("date").descending();  // default DESC
 			 }
-			Pageable pageable = PageRequest.of(paginationRequest.getPage(), paginationRequest.getSize(), sortable);			
-			Page<Notification> pages =  notificationRepository.findByTitleContaining(paginationRequest.getTitle(), pageable);
+			Pageable pageable = PageRequest.of(page, size, sortable);			
+			Page<Notification> pages =  notificationRepository.findByTitleContaining(title, pageable);
 			
 			return ResponseEntity.ok(pages);
 		} catch (Exception e) {
