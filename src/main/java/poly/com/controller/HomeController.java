@@ -24,12 +24,6 @@ public class HomeController {
 		return "contents/user/about";
 	}
 	
-	@RequestMapping("/trang-chu/tin-tuc")
-	public String news() {
-		
-		return "contents/user/news";
-	}
-	
 	@RequestMapping("/trang-chu/thiet-ke")
 	public String design() {
 		
