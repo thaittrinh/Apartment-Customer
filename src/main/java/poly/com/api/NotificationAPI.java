@@ -19,8 +19,9 @@ public class NotificationAPI {
 	NotificationService notificationService;
 	
 	@GetMapping
-	public ResponseEntity<Page<Notification>> pagenation(@RequestParam("page") int page, @RequestParam("size") int size,
-															@RequestParam("title") String title,
+	public ResponseEntity<Page<Notification>> pagenation(@RequestParam(name = "page", defaultValue = "0") int page,
+															@RequestParam(name = "size", defaultValue = "6") int size,
+															@RequestParam(name = "title", defaultValue = "") String title,
 															@RequestParam(name = "sortType", defaultValue = "DESC") String sortType ){	
 		
 		return notificationService.pagenation(page, size, title, sortType);

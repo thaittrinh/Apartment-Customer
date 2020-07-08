@@ -10,7 +10,6 @@ import poly.com.entity.Notification;
 public interface NotificationRepository extends JpaRepository<Notification, Integer> {
 
 	Page<Notification> findByTitleContaining(String title, Pageable pageable);
-	///Page<Passenger> page = repository.findAll(PageRequest.of(0, 1, Sort.by(Sort.Direction.ASC, "seatNumber")));
-
+	
 	
 }

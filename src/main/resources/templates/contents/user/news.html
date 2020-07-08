@@ -5,74 +5,56 @@
 <!-- jumbotron -->
 <div class="site-section">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_4.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
+    
+    <div class="row">
+    <h2 ><strong >TIN TỨC</strong></h2>
+    <input class="form-control ml-auto" style=" width: 250px;" id="search"	type="text" placeholder="Search & enter" aria-label="Search"> 
+    </div>
+    
+    <br/>
+    <div class="row">
+     <div class=" float-left">    
+      <select class="custom-select " id="size">  
+        <option value="6">6</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+      </select>
+     </div>
+   	 <div class=" ml-auto" >    
+      <select class="custom-select" id="sort-type">  
+        <option value="DESC">Gần đây</option>
+        <option value="ASC">Cũ hơn</option>
+      </select>
+     </div>
+    </div>
+   
+      <div class="row" id="content">  
+      
+      
+       <!--  
+        <div class="col-lg-6 d-flex justify-content-start" style="margin:15px 0; padding: 0;">
+          <img src="https://drive.google.com/uc?id=1lu_uOr-ZSvyD1dNkINo-SLFz8dcQTD4v" alt="Image" class="col-lg-5">      
+          <div class="col-lg-7">
+          <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
+            <span class="d-block text-secondary small text-uppercase">2020-02-29</span>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_2.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_3.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
-          </div>
-        </div>
-  
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_2.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_3.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-          <a href="single.html"><img th:src="@{/assets/user/img/news/img_4.jpg}" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="single.html">This Is The Day, Party, Party!</a></h2>
-          </div>
-        </div>
-  
+        -->
       </div>
-  
+         
     </div>
   
-    <div class="container mt-5" data-aos="fade-up">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <div class="site-block-27">
-            <ul>
-              <li><a href="#">&lt;</a></li>
-              <li class="active"><span>1</span></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+   <div style="margin-top: 50px;"
+			class="row mx-auto justify-content-center align-items-center flex-column ">
+			<ul style="font-size: 15px;" id="pagination-demo"
+				class="pagination-md"></ul>
+		</div>
   </div>
   
   
+  <script th:src="@{/assets/user/paging/jquery.twbsPagination.js}"></script>
+  <script th:src="@{/assets/user/js-dev/news.js}"></script>
+  
   </div>
+  
   </div>
