@@ -1317,6 +1317,11 @@ Developments page
 	overflow: hidden;
 }
 
+.dev-text span {
+	
+	 word-break: break-word;
+}
+
 .development-box .dev-price {
 	float: left;
 }
