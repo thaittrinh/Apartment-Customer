@@ -15,7 +15,7 @@ html, body {
     color: white !important;
 }
 .navbar li a:hover {
-    color: black !important;
+    color: #ECAB53 !important;
 }
 .carousel-inner img {
 	width: 100%;
@@ -1598,8 +1598,6 @@ Responsive
 ul.cap_2 {
 		width: 210px;
 		height: auto;
-		
-	
 		position: absolute;
 		top: 39px;
 		left: -13px;
@@ -1610,7 +1608,6 @@ ul.cap_2 {
 	ul.cap_2 li {
 		display: block;
 		color: white;
-		
 		padding: 0;
 		text-align: left;
 		cursor: pointer;
@@ -1626,6 +1623,8 @@ ul.cap_2 {
 	}
 	ul.cap_2 li a:hover {
 		color:#4998e2b4;
+		background-color: rgba(82,64,120,0.9) !important;
+		
 	}
 
 	.menu ul
@@ -3839,6 +3838,9 @@ ul.cap_2 {
 		  margin-bottom: 10px; }
   
 
-
-
+.resident-hover:hover {
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-decoration: none;
+}
 
