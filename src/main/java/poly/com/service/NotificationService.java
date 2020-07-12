@@ -35,4 +35,14 @@ public class NotificationService {
 		}
 	}
 	
+	
+	public ResponseEntity<Notification> findById(int id){
+		try {
+			Notification notification = notificationRepository.findById(id).orElse(null);
+			return ResponseEntity.ok(notification);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }

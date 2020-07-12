@@ -15,16 +15,16 @@ let getConnection =  (function(path,fnc){
 let viewResult = (function(notifications){
 	 let html  = ''
 		 notifications.forEach(notification => 
-	    html +=  `
-			 <a href="#" class="col-lg-6 d-flex justify-content-start" style="margin:15px 0; padding: 0;">		 
-		          <img style="height:235px;" src="https://drive.google.com/uc?id=1lu_uOr-ZSvyD1dNkINo-SLFz8dcQTD4v" alt="Loading..." class="col-lg-5 img-thumbnail">      
-		          <div class="col-lg-7">
-		          <h4 class="h5 text-black mb-3" ><strong>${notification.title}</strong></h4>
-		            <span class="d-block text-secondary small text-uppercase"><i class="far fa-clock"></i> <i>${notification.date}</i></span>
-		            <p style="font-size: 14px;">${notification.description}</p>          
-		          </div>
-		      </a>    	
-	    	`
+	    html += `
+			 <a href="${URL}trang-chu/tin-tuc/${notification.id}" class="col-lg-2" style="margin:15px 0; padding: 0;">		 
+	          <img style="height:230px; width:100%;" src="${notification.image}" alt="Loading..." class="img-thumbnail">      
+	          </a>   
+	          <a  class="col-lg-4" href="${URL}trang-chu/tin-tuc/${notification.id}" style="margin:15px 0; padding-left: 10px; " >
+	          <h4 class="h5 text-black mb-3" ><strong>${notification.title}</strong></h4>
+	            <span class="d-block text-secondary small text-uppercase"><i class="far fa-clock"></i> <i>${notification.date}</i></span>
+	            <p style="font-size: 14px;">${notification.description}</p>          
+	          </a>        	
+	    	` 	    
 	 );
 	 document.getElementById('content').innerHTML = html;
  });

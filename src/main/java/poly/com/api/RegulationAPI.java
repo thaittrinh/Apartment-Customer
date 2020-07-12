@@ -5,10 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import poly.com.entity.Regulation;
 import poly.com.service.RegulationService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/regulation")

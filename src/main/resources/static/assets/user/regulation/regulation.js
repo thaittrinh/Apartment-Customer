@@ -8,7 +8,7 @@
             document.getElementById('regulation').innerHTML = result.content;
         },
         error: function (error) {
-            alert(error)
+            console.log(error)
         }
     })
 })()
