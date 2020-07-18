@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
+       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
 	<meta charset="utf-8">
@@ -34,10 +34,12 @@
             <p class="passwordError"></p>
           </div>
            <span th:if="${param.error != null}" class="error-login">Sai tên đăng nhập hoặc mật khẩu!</span>
+            <span style="font-size:14px; color: #1c7430" th:text="${messageSuccess}"></span>
           <div class="form-check">
             <input type="checkbox" class="form-check-input" name="remember-me" id="rememberMe" >
             <label class="form-check-label" for="rememberMe">Ghi nhớ tài khoản</label>
-          </div>   
+          </div>
+            <a class="float-right" style="color: white" th:href="@{/api/resetpassword/page-forgot-password}">Quên mật khẩu </a>
           <button type="submit" class="btn btn-success btn-block my-3">Đăng nhập</button>
         </form>
       </div>
