@@ -52,7 +52,7 @@ public class ResetPasswordServices {
                 mailMessage.setText("Xin chào Bạn " + "\n"
                         + "chúng tôi đã nhận được yêu cầu  đặt lại mật khẩu của bạn " + "\n"
                         + "vui lòng click vào link bên dưới để đặt lại mật khẩu " + "\n"
-                        + "http://localhost:8082/vinhomegrandpark.vn/api/resetpassword/confirm-reset?token="
+                        + "http://localhost:8082/vinhomegrandpark.vn/resetpassword/confirm-reset?token="
                         + tokenUser.getToken());
                 emailSenderService.sendEmail(mailMessage);
                 modelAndView.setViewName("/form-check-email");
