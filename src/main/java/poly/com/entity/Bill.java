@@ -48,6 +48,9 @@ public class Bill implements Serializable {
 	@NotNull(message = "Electricity price is not null") 
 	private Double electricityPrice6;
 	
+	@NotNull(message = "ElectricityPriceTotal is not null") 
+	private Double electricityPriceTotal;
+	
 	@NotNull(message = "Water number is not null") 
 	private Integer waterNumber;
 	
@@ -72,6 +75,9 @@ public class Bill implements Serializable {
 	@NotNull(message = "Car price is not null") 
 	private Double carPrice;
 	
+	@NotNull(message = "ParkingPriceTotal is not null") 
+	private Double parkingPriceTotal;
+	
 	@NotNull(message = "Management fee is not null") 
 	private Double managementPrice;
 	
@@ -88,6 +94,7 @@ public class Bill implements Serializable {
 	@OneToOne()
 	@MapsId()
 	private ApartmentIndex apartmentIndex;
+
 
 	
 }
