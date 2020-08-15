@@ -1,25 +1,23 @@
-
 document.querySelector('#test').addEventListener('click', () => {
     var changepassword = getValueFormPassword();
     if (validate(changepassword)) {
         $.ajax({
-            type: 'PUT',
+            type: 'POST',
             url: URL + `api/account/changepassword`,
             contentType: 'application/json',
             dataType: 'json',
             cache: false,
             data: JSON.stringify(changepassword),
-            success: function (result) {
-            	alert(1);
+            success: function(response) {
+                    $("#message").html("Đã đổi mật khẩu ").addClass("alert-success");
+
             },
             error: function (error) {
-                if (error.status === 404) {
+                 if (error.status === 404) {
                     $("#message").html("Tài khoản không tồn tại!").addClass("alert-danger");
-                }
-                if (error.status === 400) {
+                } else if (error.status === 400) {
                     $("#message").html("Mật khẩu cũ không đúng!").addClass("alert-danger")
-                }
-                if (error.status === 500) {
+                } else if (error.status === 500) {
                     $("#message").html("Lỗi server vui lòng thử lại sau!").addClass("alert-danger")
                 }
 
@@ -71,7 +69,7 @@ $("#form-change-password").on("hidden.bs.modal", function () {
 document.querySelector('#clean-form-change-password').addEventListener('click', cleanFormChangePassword);
 
 let validate = (data) => {
-    let odlPassword =  document.querySelector('#oldPassword').value.trim()
+    let odlPassword = document.querySelector('#oldPassword').value.trim()
     let confirmPassword = document.querySelector('#confirmPassword').value.trim()
     let password = document.querySelector('#newPassword').value.trim()
     if (data.oldPassword === '') {
@@ -79,7 +77,7 @@ let validate = (data) => {
         $("#message").html("Vui lòng nhập mật khẩu cũ!").addClass("alert-danger")
         return false
     }
-    if(data.oldPassword.length < 6 || data.oldPassword.length > 12 ){
+    if (data.oldPassword.length < 6 || data.oldPassword.length > 12) {
         $("#message").html("Mật khẩu từ 6 đến 12 ký tự!").addClass("alert-warning");
         document.querySelector('#oldPassword').focus()
         return false
@@ -94,13 +92,13 @@ let validate = (data) => {
         $("#message").html("bạn đã nhập mật khẩu cũ hay thử một mẩu khác!").addClass("alert-warning");
         return false
     }
-    let special = data.newPassword.match((/[!@#$%^&*_]+/g));
+    let special = data.newPassword.match((/[!#$%^&*_]+/g));
     if (special != null) {
         $("#message").html("Mật khẩu không được chứa ký tực đặc biệt!").addClass("alert-danger");
         document.querySelector('#newPassword').focus();
         return false
     }
-    if(data.newPassword.length < 6 || data.newPassword.length > 12 ){
+    if (data.newPassword.length < 6 || data.newPassword.length > 12) {
         $("#message").html("Mật khẩu từ 6 đến 12 ký tự!").addClass("alert-warning");
         document.querySelector('#newPassword').focus();
         return false
