@@ -1,6 +1,7 @@
-<div lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      data-layout-decorate="~{/layout-user}">
-<div layout:fragment="content">
+<div lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      data-layout-decorate="~{layout-user}"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:fragment="content">
 	<section class="developments-section spad">
 	  <span th:text="${id}" id="id-news"  hidden="true"></span>
 		<div class="container">
@@ -17,5 +18,4 @@
 		</div>
 	</section>
 <script th:src="@{/assets/user/js-dev/news-detail.js}"></script>
-</div>
 </div>

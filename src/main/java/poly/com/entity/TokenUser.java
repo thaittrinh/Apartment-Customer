@@ -16,8 +16,9 @@ import java.util.UUID;
 public class TokenUser implements Serializable {
 
 
+	private static final long serialVersionUID = -5564266084709612740L;
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
