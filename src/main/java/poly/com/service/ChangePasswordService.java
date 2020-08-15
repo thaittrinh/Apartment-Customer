@@ -21,6 +21,7 @@ public class ChangePasswordService {
     private PasswordEncoder passwordEncoder;
 
     public ResponseEntity<String>ChanePassword(ChangePasswordRequest changePasswordRequest ) {
+    	
         try {
             Apartment apartment = apartmentRepository.findById(changePasswordRequest.getId()).orElse(null);
             if (apartment == null) {
@@ -40,6 +41,7 @@ public class ChangePasswordService {
         } catch (Exception e) {
             return new ResponseEntity<>("Lỗi server", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
 
 

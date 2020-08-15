@@ -32,12 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
 
-
-    @Bean /*  ------------------ config CorsOrigin ---------------------- */
+    
+    /*  ------------------ config CorsOrigin ---------------------- */  
+    @Bean 
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.addAllowedOrigin("http://localhost:8082"); /* chi cho phep domain nay gui request*/
+        configuration.addAllowedOrigin("http://localhost:5000"); 
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("GET");
         configuration.addAllowedMethod("POST");
@@ -47,6 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
+    
+    
     @Override  /* --------------- configure HttpSecurity --------------- */
     protected void configure(HttpSecurity http) throws Exception {
     	http.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400); 
