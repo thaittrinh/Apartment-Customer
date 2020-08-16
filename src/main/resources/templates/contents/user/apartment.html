@@ -1,6 +1,7 @@
-<div lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      data-layout-decorate="~{/layout-user}">
-<div layout:fragment="content">
+<div lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      data-layout-decorate="~{layout-user}"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:fragment="content">
 <div class="statistical" style="margin:30px 15px;">
 	<!---------------------------- ----------------------------------------------------------------------------------------------->	
 		<div class="section-title">
@@ -66,5 +67,4 @@
 	<!-- Bieu do cot -->	
 	<script th:src="@{/assets/user/js-dev/char/cdnjs-char.js}"></script>
 	<script th:src="@{/assets/user/js-dev/resident.js}"></script>
-</div>
 </div>

@@ -1,4 +1,4 @@
-<footer xmlns:th="https://www.thymeleaf.org">
+<footer  xmlns:th="http://www.w3.org/1999/xhtml">
 	<div class="container-fluid padding">	
 		<div class="row ">
 			<div class="col-md-3 text-center">	
@@ -36,14 +36,15 @@
 	<script type="text/javascript" th:inline="javascript">
 		let language = [[${#locale}]];
 		switch(language) {
-		  case 'en':			  
-			  document.getElementById('image_lang').src= window.location.origin + URL +"assets/user/ensign/EN_24.png";
+		  case 'vi':			  
+			  document.getElementById('image_lang').src= window.location.origin + URL +"assets/user/ensign/VN_24.png";
 		    break;
 		  case 'jp':
 			  document.getElementById('image_lang').src= window.location.origin + URL +"assets/user/ensign/JP_24.png";
 		    break;
-		  default:
-			  document.getElementById('image_lang').src= window.location.origin + URL +"assets/user/ensign/VN_24.png";
+		  default: //en
+			  document.getElementById('image_lang').src= window.location.origin + URL +"assets/user/ensign/EN_24.png";
+			 
 		}
 	</script>
 	
