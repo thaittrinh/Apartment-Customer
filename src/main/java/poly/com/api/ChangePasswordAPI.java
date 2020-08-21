@@ -1,14 +1,17 @@
 package poly.com.api;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import poly.com.helper.MessageResponse;
 import poly.com.request.ChangePasswordRequest;
 import poly.com.service.ChangePasswordService;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/account")

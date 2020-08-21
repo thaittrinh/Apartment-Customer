@@ -1,6 +1,7 @@
 package poly.com.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,6 +30,10 @@ public class ResetPasswordServices {
 
     @Autowired
     private TokenRespository tokenRespository;
+    
+    @Value("${app.domain}")
+    private String domain;
+    
 
     /* -----------------------Scheduling delete token ----------------------------- */
     // scheduleding(lap lich) het tgian se tu dong xoa  cho token
@@ -49,28 +54,33 @@ public class ResetPasswordServices {
                 mailMessage.setTo(email);
                 mailMessage.setSubject("Xác nhận đặt lại mật khẩu");
                 mailMessage.setFrom("ndt.programmer@gmail.com");
+                //mailMessage.setFrom("huynhtri2552@gmail.com");
                 mailMessage.setText("Xin chào Bạn " + "\n"
                         + "chúng tôi đã nhận được yêu cầu  đặt lại mật khẩu của bạn " + "\n"
                         + "vui lòng click vào link bên dưới để đặt lại mật khẩu " + "\n"
-                        + "http://localhost:8082/vinhomegrandpark.vn/resetpassword/confirm-reset?token="
+                        + domain + "/resetpassword/confirm-reset?token="
                         + tokenUser.getToken());
-                emailSenderService.sendEmail(mailMessage);
-                modelAndView.setViewName("/form-check-email");
-                modelAndView.addObject("messageSuccess",
-                        "Hệ thống đã gửi cho bạn một e-mail có kèm theo link" + "\n" + "để đặt lại mật khẩu, kiểm tra email của bạn");
-            } else {
-                modelAndView.setViewName("/form-check-email");
+                try {
+                	 emailSenderService.sendEmail(mailMessage);
+                	 modelAndView.addObject("messageSuccess",
+                             "Hệ thống đã gửi cho bạn một e-mail có kèm theo link" + "\n" + "để đặt lại mật khẩu, kiểm tra email của bạn");
+				} catch (Exception e) {
+					 modelAndView.addObject("messageError","Lỗi serve! thử lại sau.");
+				}                  
+            } else {     
                 modelAndView.addObject("messageError", "Email này không tồn tại, vui lòng kiểm tra lại ");
+           
             }
-        } else {
-            modelAndView.setViewName("/form-check-email");
+        } else {    
             modelAndView.addObject("messageError", "Id căn hộ không tồn tại, vui lòng kiểm tra lại");
         }
+        
+        modelAndView.setViewName("form-check-email");
         return modelAndView;
     }
 
     public ModelAndView validateresettoken(ModelAndView modelAndView, String token) {
-        TokenUser tokenUser = tokenRespository.findByToken(token);
+        TokenUser tokenUser = tokenRespository.findByToken(token).orElse(null);
 
         if (tokenUser != null) {
             Apartment apartment = apartmentRepository.findApartmentById(tokenUser.getApartment().getId()).orElse(null);
@@ -78,27 +88,27 @@ public class ResetPasswordServices {
             modelAndView.addObject("apartment", apartment);
             modelAndView.addObject("id", apartment.getId());
             modelAndView.addObject("token", token);
-            modelAndView.setViewName("/form-reset-password");
+            modelAndView.setViewName("form-reset-password");
         } else {
             modelAndView.addObject("message", "Liên kết không hợp lệ hoặc bị hỏng!");
-            modelAndView.setViewName("/404");
+            modelAndView.setViewName("404");
         }
         return modelAndView;
     }
     /* ------------------------------------resetpassword ---------------------------*/
     public ModelAndView resetpassword(ModelAndView modelAndView, Apartment apartment, String token) {
-        TokenUser tokenUser = tokenRespository.findByToken(token);
+        TokenUser tokenUser = tokenRespository.findByToken(token).orElse(null);
 
         if (tokenUser == null) {
             modelAndView.addObject("message", "The link is invalid or broken!");
-            modelAndView.setViewName("/404");
+            modelAndView.setViewName("404");
         } else {
             Apartment tokenApartment= tokenUser.getApartment();
             tokenApartment.setPassword(passwordEncoder.encode(apartment.getPassword()));
             apartmentRepository.save(tokenApartment);
             modelAndView.addObject("messageSuccess", "Đặt lại mật khẩu thành công");
             TOKENEXPIRED();
-            modelAndView.setViewName("/login");
+            modelAndView.setViewName("login");
         }
         return modelAndView;
     }

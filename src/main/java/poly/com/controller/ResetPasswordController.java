@@ -17,7 +17,7 @@ public class ResetPasswordController {
     @GetMapping("/page-forgot-password")
     public ModelAndView displayResetPassword(ModelAndView modelAndView, Apartment apartment) {
         modelAndView.addObject("apartment", apartment);
-        modelAndView.setViewName("/form-check-email");
+        modelAndView.setViewName("form-check-email");
         return modelAndView;
     }
 
