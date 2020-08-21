@@ -1594,8 +1594,7 @@ Responsive
 
 }
 
-
-ul.cap_2 {
+ ul.cap_2 {
 		width: 210px;
 		height: auto;
 		position: absolute;
@@ -1615,11 +1614,14 @@ ul.cap_2 {
 	ul.cap_2 li:last-child {
 		border: none;
 	}
+
 	li{
 		position: relative;
 	}
+	
 	li:hover ul.cap_2 {
-		display: block;
+		display: block;	
+		
 	}
 	ul.cap_2 li a:hover {
 		color:#4998e2b4;
@@ -1631,6 +1633,15 @@ ul.cap_2 {
 	{
 		float: left;
 	}
+
+
+
+
+
+
+
+
+
 
 /* Medium screen : 992px. */
 
